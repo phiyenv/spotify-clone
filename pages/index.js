@@ -8,7 +8,7 @@ export default function Home() {
         {/* Center */}
       </main>
 
-  <div>{/* Playlists... */} </div>   
+  <div>{/* Player */} </div>   
 </div>
   );
 }
