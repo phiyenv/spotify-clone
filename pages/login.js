@@ -1,19 +1,26 @@
-import {getProviders, signIn} from "next-auth/react";
+import { getProviders, signIn } from "next-auth/react";
 
-function Login({providers}) {
+function Login({ providers }) {
     return (
-        <div>
-            <img className="w-52 mb-5" 
-            src="https://links.papareact.com/9xl" 
-            alt=""/>
-            {Object.values(providers).map((provider)=>(
+        <div className=" flex flex-col items-center bg-black min-h-screen w-full" >
+            <img className="w-52 mb-5" src="https://links.papareact.com/9xl"
+                alt="" />
+            {Object.values(providers).map((provider) => (
                 <div key={provider.name}>
-                    <button className="bg-green-400 text-white p-5 rounded-full">Login with {provider.name}</button>
-                </div>
-            ))}
-        </div>
-    );
+                    <button
+                        className="bg-green-400 text-white p-5 rounded-full justify-center"
+                        onClick={() => signIn(provider.id, { callbackUrl:"/"}
+                        )}
+                        
+                        >
+                    Login with {provider.name}
+                </button>
+                    </div>
+    ))
 }
+            </div >
+        );
+    }
 
 export default Login;
 
